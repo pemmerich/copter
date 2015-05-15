@@ -67,12 +67,10 @@ function onTick(event)
 	bg1.x -=2;
 	bg2.x-=2;
 	if(bg1.x<-bg1.imgWidth){
-		bg1.x=bg1.imgWidth;
-		bg2.x=0;
+		bg1.x=bg2.x+bg2.imgWidth;
 	}
 	if(bg2.x<-bg2.imgWidth){
-		bg2.x=bg2.imgWidth;
-		bg1.x=0;
+		bg2.x=bg1.x+bg1.imgWidth;
 	}
 
 
