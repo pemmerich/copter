@@ -1,0 +1,212 @@
+<stage>
+	<scenes cols="">
+
+        <scene id="scene_one">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+	    <scene id="scene_two">
+        	<background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_three">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_four">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_five">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_six">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_seven">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_eight">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_nine">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_10">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="scene_11">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="12">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="13">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="14">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="15">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="16">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="17">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="18">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="19">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="20">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="21">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="22">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="23">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="24">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="25">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="26">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="27">
+            <background>images/bg1.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+        <scene id="28">
+            <background>images/bg2.jpg</background>
+            <extras>
+                <extra x="10" y="10" height="200" width="100">extra1.png</extra>
+            </extras>
+        </scene> 
+
+
+
+
+
+       
+
+       
+
+
+
+
+    </scenes>
+</stage>
