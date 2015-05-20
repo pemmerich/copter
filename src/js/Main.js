@@ -55,7 +55,7 @@ function init()
 	}
 
 	tick = createjs.Ticker;
-	tick.interval = 1;
+	tick.interval = 5;
 	tick.on("tick", onTick);
 	//constantly redraw the stage
 	createjs.Ticker.on("tick", stage);
@@ -73,9 +73,25 @@ function onTick(event)
 		bg2.x=bg1.x+bg1.imgWidth;
 	}
 
+	var rand = Math.floor((Math.random() * 100) + 1);
+	if(rand == 41){
+		fireObstacle();
+	}
+
 
 }
 
+function fireObstacle()
+{
+	console.log("fire obstacle");
+	var rand = Math.floor((Math.random() * 50) + 10);
+	var ob = new Obstacle("images/fireball.png");
+	stage.addChild(ob);
+
+	ob.x = bg1.imgWidth-ob.imgWidth;
+	ob.y = Math.floor((Math.random() * bg1.imgHeight) + 1);; 
+		
+}
 
 function adjustLayout()
 {

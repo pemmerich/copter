@@ -1,29 +1,30 @@
 (function() {
 
-var BG = function(img) {
+var Obstacle = function(img) {
   this.initialize(img);
 }
-var p = BG.prototype = new createjs.Container(); // inherit from Container
+var p = Obstacle.prototype = new createjs.Container(); // inherit from Container
 p.background;
 p.count = 0;
-
+p.namex = "yes";
 p.type;
 p.radius = 15;
-p.imgWidth = 568;
-p.imgHeight = 320;
+p.imgWidth = 10;
+p.imgHeight = 10;
 p.row;
 p.column;
 p.startX;
 p.endX;
 p.offset;
 p.originalX;
+p.self;
+p.tick;
 
 p.Container_initialize = p.initialize;
 p.initialize = function(img) 
 {
-	//console.log("init BG types = "+types);
+	console.log("init OB img = "+img);
 	this.Container_initialize();
-	
 	
 	
 	this.background = new createjs.Bitmap(img);
@@ -47,14 +48,29 @@ p.initialize = function(img)
 	this.on("pressup", this.handlePressUp);
 	this.on("pressmove", this.handlePressMove);
 
+	this.onTick();
+
 	
 	this.mouseChildren = false;
+
+	
+	this.tick = setInterval(function(){
+		this.onTick();
+	},100);
+	
+	
 	
 } 
 
+p.onTick = function(event)
+{
+
+	console.log("tick "+this);
+	this.x -= 10;
+}
+
 p.handleClick = function (event) 
 {    
-	var target = event.target;
 	
 } 
 
@@ -83,5 +99,5 @@ p.updateBG = function(type)
 
 }
 
-window.BG = BG;
+window.Obstacle = Obstacle;
 }());
