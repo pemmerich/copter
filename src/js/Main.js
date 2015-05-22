@@ -1,5 +1,5 @@
 
-var stage, holder, canvas, canvasMeasure, bg1, bg2, tick, numOb=0, character, characterBounds, characterImg="images/character_one.png", pressing=false;
+var stage, holder, canvas, canvasMeasure, bg1, bg2, tick, replayBtn, clockText, clock=0, numOb=0, character, characterBounds, characterImg="images/character_one.png", pressing=false;
 var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 
 
@@ -66,7 +66,7 @@ function init()
 	character.y = 50;
 
 	//must explicitly set bounds
-	character.setBounds(20,20,80,80);
+	character.setBounds(40,30,70,80);
 	characterBounds = character.getBounds();
 
 
@@ -80,17 +80,28 @@ function init()
 	stage.on("mousedown", handleMouseDown);
 	stage.on("pressup", handlePressUp);
 
-
+	replayBtn = stage.addChild(new Button("Play Again", "#0099cc","20px Arial"));
+	replayBtn.x = 568/2-60;
+	replayBtn.y = 320/2-50;
+	replayBtn.on("click", reset);
+	replayBtn.visible=false;
 	
-
+	clockText = new createjs.Text("", "20px Arial", "#fff");
+	clockText.textBaseline = "top";
+	clockText.textAlign = "right";
+	clockText.x=558;
+	clockText.y=5;
+	stage.addChild(clockText);
 }
 
 function onTick(event)
 {
 	//console.log("Paused:", event.paused, event.time);
 	if(!event.paused){
-		bg1.x -=2;
-		bg2.x-=2;
+		clock++;
+		clockText.text=clock;
+		bg1.x -=4;
+		bg2.x-=4;
 		if(bg1.x<-bg1.imgWidth){
 			bg1.x=bg2.x+bg2.imgWidth;
 		}
@@ -98,7 +109,7 @@ function onTick(event)
 			bg2.x=bg1.x+bg1.imgWidth;
 		}
 		
-		var rand = Math.floor((Math.random() * 100) + 1);
+		var rand = Math.floor((Math.random() * 80) + 1);
 		if(rand == 41){
 			fireObstacle();
 		}
@@ -118,6 +129,8 @@ function gameOver()
 {
 	console.log("GAME OVER!");
 	tick.paused=true;
+	character.visible=false;
+	replayBtn.visible=true;
 }
 
 function fireObstacle()
@@ -132,6 +145,16 @@ function fireObstacle()
 	//ob.onTick();
 	ob.on("tick", ob.onTick);
 	numOb++;
+}
+
+function reset()
+{
+	clock=0;
+	character.y = 50;
+	character.visible=true;
+	tick.paused=false;
+	replayBtn.visible=false;
+
 }
 
 function adjustLayout()
