@@ -41,7 +41,7 @@ p.initialize = function(img)
 	
 	
 	//must explicitly set bounds
-	this.setBounds(0,0,this.imgWidth,this.imgHeight);
+	this.setBounds(5,5,this.imgWidth-10,this.imgHeight-10);
 	this.bounds = this.getBounds();
 	//this.on("click", this.handleClick);
 	

@@ -109,7 +109,7 @@ function onTick(event)
 			bg2.x=bg1.x+bg1.imgWidth;
 		}
 		
-		var rand = Math.floor((Math.random() * 80) + 1);
+		var rand = Math.floor((Math.random() * 60) + 1);
 		if(rand == 41){
 			fireObstacle();
 		}
