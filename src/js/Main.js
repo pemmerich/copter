@@ -74,11 +74,12 @@ function init()
 	characterOneBtn.scaleX = characterOneBtn.scaleY = scale;
 	characterOneBtn.regX = characterOneBtn.regY = 0;
 	
-	characterOneBtn.x = 60;
+	characterOneBtn.x = 300;
 	characterOneBtn.y = 50;
 	characterOneBtn.setBounds(40,30,70,90);
 	characterOneBtn.name="characterOneBtn";
 
+/*
 	characterTwoBtn = new createjs.Bitmap("images/character_three.png");
 	stage.addChild(characterTwoBtn); 
 	var scale = .7;
@@ -92,6 +93,7 @@ function init()
 	characterTwoBtn.name="characterTwoBtn";
 
 	characterTwoBtn.on("click", chooseCharacter);
+	*/
 	characterOneBtn.on("click", chooseCharacter);
 
 
@@ -134,7 +136,7 @@ function init()
 	characterText.textBaseline = "top";
 	characterText.textAlign = "left";
 	characterText.x=220;
-	characterText.y=5;
+	characterText.y=15;
 	stage.addChild(characterText);
 
 	//gameOver();
@@ -248,7 +250,7 @@ function reset(event)
 	tick.paused=false;
 	replayBtn.visible=false;
 	characterText.visible=false;
-	characterTwoBtn.visible=false;
+	//characterTwoBtn.visible=false;
 	characterOneBtn.visible=false;
 }
 
