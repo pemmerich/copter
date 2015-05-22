@@ -64,7 +64,7 @@ p.onTick = function(event)
 	console.log(this.name+" width = "+this.bounds.width+" character width = "+characterBounds.width);
 	console.log(this.name+" height = "+this.bounds.height+" character height = "+characterBounds.height);
 	*/
-	this.x -= 8;
+	this.x -= 14;
 	//console.log(this.name+" tick after "+this.x);
 	if(this.x<=-this.imgWidth){
 		stage.removeChild(this);

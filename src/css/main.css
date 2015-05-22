@@ -3,17 +3,6 @@
 
 /* ----------- Fonts -----------*/
 
-@font-face
-{
-	font-family:Equestria;
-	src:url(../fonts/Equestria.otf) format("opentype");
-}
-
-@font-face
-{
-	font-family:PonyFont;
-	src:url(../fonts/ponyfont.ttf) format("opentype");
-}
 
 
 
@@ -200,7 +189,7 @@ body, html
 	display: inline-block;
 	width: 40px;
 	height: 40px;
-	background-color: rgba(225, 135, 76, 0.75);;
+	background-color: rgba(225, 135, 76, 0.75);
 	border-radius: 20px;
 	margin-left: 4px;
 }
