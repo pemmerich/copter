@@ -1,5 +1,5 @@
 
-var stage, holder, canvas, canvasMeasure, bg1, bg2, tick;
+var stage, holder, canvas, canvasMeasure, bg1, bg2, tick, numOb=0, character, characterBounds, characterImg="images/character_one.png", pressing=false;
 var isTouch = (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
 
 
@@ -19,8 +19,8 @@ $(window).resize(function() {
 	
 	adjustLayout();
 
-	console.log("Viewport Width = "+viewportWidth);
-	console.log("Viewport Height = "+viewportHeight);
+	//console.log("Viewport Width = "+viewportWidth);
+	//console.log("Viewport Height = "+viewportHeight);
 	//update survey container size
 	//survey.sizeContent();
 
@@ -54,43 +54,84 @@ function init()
 		}
 	}
 
+	//create character
+	character = new createjs.Bitmap(characterImg);
+	stage.addChild(character); 
+	var scale = .4;
+
+	character.scaleX = character.scaleY = scale;
+	character.regX = character.regY = 0;
+	
+	character.x = 200;
+	character.y = 50;
+
+	//must explicitly set bounds
+	character.setBounds(20,20,80,80);
+	characterBounds = character.getBounds();
+
+
 	tick = createjs.Ticker;
-	tick.interval = 5;
+	tick.framerate = 30;
+	tick.timingMode = createjs.Ticker.RAF_SYNCHED;
 	tick.on("tick", onTick);
 	//constantly redraw the stage
-	createjs.Ticker.on("tick", stage);
+	tick.on("tick", stage);
+	//console.log("timing mode = "+tick.timingMode);
+	stage.on("mousedown", handleMouseDown);
+	stage.on("pressup", handlePressUp);
+
+
+	
+
 }
 
 function onTick(event)
 {
 	//console.log("Paused:", event.paused, event.time);
-	bg1.x -=2;
-	bg2.x-=2;
-	if(bg1.x<-bg1.imgWidth){
-		bg1.x=bg2.x+bg2.imgWidth;
-	}
-	if(bg2.x<-bg2.imgWidth){
-		bg2.x=bg1.x+bg1.imgWidth;
+	if(!event.paused){
+		bg1.x -=2;
+		bg2.x-=2;
+		if(bg1.x<-bg1.imgWidth){
+			bg1.x=bg2.x+bg2.imgWidth;
+		}
+		if(bg2.x<-bg2.imgWidth){
+			bg2.x=bg1.x+bg1.imgWidth;
+		}
+		
+		var rand = Math.floor((Math.random() * 100) + 1);
+		if(rand == 41){
+			fireObstacle();
+		}
+		if(pressing){
+			character.y-=2;
+		}else{
+			character.y+=4;
+		}
+		if(character.y>bg1.imgHeight){
+			gameOver();
+		}
 	}
 
-	var rand = Math.floor((Math.random() * 100) + 1);
-	if(rand == 41){
-		fireObstacle();
-	}
+}
 
-
+function gameOver()
+{
+	console.log("GAME OVER!");
+	tick.paused=true;
 }
 
 function fireObstacle()
 {
-	console.log("fire obstacle");
+	//console.log("fire obstacle");
 	var rand = Math.floor((Math.random() * 50) + 10);
 	var ob = new Obstacle("images/fireball.png");
 	stage.addChild(ob);
-
+	ob.name="ob_"+numOb;
 	ob.x = bg1.imgWidth-ob.imgWidth;
-	ob.y = Math.floor((Math.random() * bg1.imgHeight) + 1);; 
-		
+	ob.y = Math.floor((Math.random() * bg1.imgHeight) + 1);
+	//ob.onTick();
+	ob.on("tick", ob.onTick);
+	numOb++;
 }
 
 function adjustLayout()
@@ -99,3 +140,16 @@ function adjustLayout()
 
 
 }
+
+function handleMouseDown(event)
+{
+	//console.log("mouse down is touch = "+event.isTouch);
+	pressing=true;
+}
+
+function handlePressUp(event)
+{    
+	//console.log("mouse up is touch = "+event.isTouch);
+	pressing=false;
+}
+

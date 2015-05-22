@@ -9,8 +9,8 @@ p.count = 0;
 p.namex = "yes";
 p.type;
 p.radius = 15;
-p.imgWidth = 10;
-p.imgHeight = 10;
+p.imgWidth = 44;
+p.imgHeight = 43;
 p.row;
 p.column;
 p.startX;
@@ -19,11 +19,12 @@ p.offset;
 p.originalX;
 p.self;
 p.tick;
+p.bounds;
 
 p.Container_initialize = p.initialize;
 p.initialize = function(img) 
 {
-	console.log("init OB img = "+img);
+	
 	this.Container_initialize();
 	
 	
@@ -41,32 +42,42 @@ p.initialize = function(img)
 	
 	//must explicitly set bounds
 	this.setBounds(0,0,this.imgWidth,this.imgHeight);
-	
+	this.bounds = this.getBounds();
 	//this.on("click", this.handleClick);
 	
-	this.on("mousedown", this.handleMouseDown);
-	this.on("pressup", this.handlePressUp);
-	this.on("pressmove", this.handlePressMove);
-
-	this.onTick();
-
 	
+
+	//this.onTick();
+	//this.onTick();
+
 	this.mouseChildren = false;
 
-	
-	this.tick = setInterval(function(){
-		this.onTick();
-	},100);
-	
 	
 	
 } 
 
 p.onTick = function(event)
 {
+	/*
+	console.log(this.name+" x = "+this.x+" character x = "+character.x);
+	console.log(this.name+" y = "+this.y+" character y = "+character.y);
+	console.log(this.name+" width = "+this.bounds.width+" character width = "+characterBounds.width);
+	console.log(this.name+" height = "+this.bounds.height+" character height = "+characterBounds.height);
+	*/
+	this.x -= 4;
+	//console.log(this.name+" tick after "+this.x);
+	if(this.x<=-this.imgWidth){
+		stage.removeChild(this);
+	}
 
-	console.log("tick "+this);
-	this.x -= 10;
+    if ( this.x >= character.x + characterBounds.width || this.x + this.bounds.width <= character.x || this.y >= character.y + characterBounds.height || this.y + this.bounds.height <= character.y ){
+    	
+    }else{
+    	console.log("COLLISION!");
+    	stage.removeChild(this);
+    	gameOver();
+    }
+
 }
 
 p.handleClick = function (event) 
@@ -74,22 +85,7 @@ p.handleClick = function (event)
 	
 } 
 
-p.handleMouseDown = function (event)
-{
-	
-}
 
-p.handlePressMove = function (event) 
-{    
-	//console.log("press move "+event.stageX);
-	
-	
-}
-
-p.handlePressUp = function (event) 
-{    
-	
-}
 
 
 

@@ -32,9 +32,9 @@ p.initialize = function(img)
 	//set size of image
 	
 	
-	var scale = .5;
+	//var scale = .5;
 
-	this.background.scaleX = this.background.scaleY = scale;
+	//this.background.scaleX = this.background.scaleY = scale;
 	this.background.regX = this.background.regY = 0;
 	
 	
