@@ -60,8 +60,9 @@ function init()
 		}
 	}
 
-	
-	localStorage.setItem('copterBestScore',0);
+	if(localStorage.getItem("copterBestScore") == null){
+		localStorage.setItem('copterBestScore',0);
+	}
 
 
 
@@ -159,14 +160,16 @@ function onTick(event)
 		if(rand > 23){
 			fireObstacle();
 		}
-		if(pressing){
+		if(pressing && character.y>-20){
 			character.y-=6;
-		}else{
+		}else if(character.y<bg1.imgHeight-150){
 			character.y+=8;
 		}
+		/*
 		if(character.y>bg1.imgHeight){
 			gameOver();
 		}
+		*/
 	}
 
 }
